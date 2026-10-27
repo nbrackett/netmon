@@ -1,0 +1,14 @@
+[Unit]
+Description=Network connectivity monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=YOURUSER
+Environment=NETMON_DIR=/home/YOURUSER/netmon-logs
+ExecStart=/usr/bin/python3 /home/YOURUSER/netmon/netmon.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
